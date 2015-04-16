@@ -4,8 +4,6 @@ image: python2.7
 
 services:
   - mysql
-  - redis
-  - mongodb
 
 env:
   - MYENV=1.txt
@@ -19,5 +17,5 @@ notify:
   email:
     recipients:
       - haipeng.wu@daocloud.io
-    on_success: on
-    on_failure: on
+    on_success: off
+    on_failure: off

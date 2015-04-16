@@ -9,6 +9,7 @@ env:
   - MYENV=1.txt
 
 script:
+  - ls /noexist/${MYENV}
   - echo "1" > ${MYENV}
   - cat ${MYENV}
   - rm -rf ${MYENV}

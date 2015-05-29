@@ -1,21 +1,8 @@
-# This is a comment line
+image: golang:1.4
 
-image: python2.7
-
-services:
-  - mysql
-
-env:
-  - MYENV=1.txt
+install:
+    - wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u20-b26/jdk-8u20-linux-x64.rpm -O /tmp/jdk-8u20-linux-x64.rpm
 
 script:
-  - echo "1" > ${MYENV}
-  - cat ${MYENV}
-  - rm -rf ${MYENV}
-
-notify:
-  email:
-    recipients:
-      - haipeng.wu@daocloud.io
-    on_success: off
-    on_failure: off
+    - export GOPATH=$PWD
+    - go test main_test.go
